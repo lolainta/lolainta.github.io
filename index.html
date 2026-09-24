@@ -10,7 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <script>
 // ponytail: pick language before first paint; toggle wiring lives at the end of body
-(() => { let l = null; try { l = localStorage.getItem('lang'); } catch {}
+// priority: ?lang= in the URL, then the visitor's last choice, then browser language
+(() => { let l = new URLSearchParams(location.search).get('lang');
+  if (l !== 'zh' && l !== 'en') { l = null; try { l = localStorage.getItem('lang'); } catch {} }
   l = l || (navigator.language.startsWith('zh') ? 'zh' : 'en');
   document.documentElement.dataset.lang = l; document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en'; })();
 </script>
@@ -388,6 +390,7 @@ function set(l) {
   root.lang = l === 'zh' ? 'zh-Hant' : 'en';
   btn.textContent = l === 'zh' ? 'English' : '中文';
   try { localStorage.setItem('lang', l); } catch {}
+  const u = new URL(location.href); u.searchParams.set('lang', l); history.replaceState(null, '', u);
 }
 btn.textContent = root.dataset.lang === 'zh' ? 'English' : '中文';
 btn.onclick = () => set(root.dataset.lang === 'zh' ? 'en' : 'zh');
