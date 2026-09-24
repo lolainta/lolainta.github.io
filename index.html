@@ -84,8 +84,8 @@ footer { margin: 72px 0 40px; color: var(--muted); font-size: 14px; }
 <main>
 <div class="hero">
   <h1>Cheng-Liang Chi<small>紀政良 · LolaInTa</small></h1>
-  <p class="lede" lang="en">I build software that tests self-driving cars before they reach the road: scenario simulation, schedulers that fan thousands of runs out across a GPU cluster, and the Linux and network plumbing underneath.</p>
-  <p class="lede" lang="zh-Hant">我寫讓自駕車在上路前先被測試的軟體：情境模擬、把上千個測試分派到 GPU 叢集上的排程系統，以及底下的 Linux 與網路基礎設施。</p>
+  <p class="lede" lang="en">I build the software that tests self-driving cars in simulation before they reach the road, from the scenario runners to the scheduler that spreads test runs across a GPU cluster. I've also spent years running Linux servers and a department network.</p>
+  <p class="lede" lang="zh-Hant">我做自駕車的模擬測試：車子上路前，先丟進各種情境裡跑。從執行情境的程式，到把測試分派到 GPU 叢集的排程系統都寫過；另外也管了好幾年的 Linux 伺服器和系館網路。</p>
 </div>
 
 <figure class="road" aria-hidden="true">
@@ -111,8 +111,8 @@ footer { margin: 72px 0 40px; color: var(--muted); font-size: 14px; }
     </g>
   </svg>
   <figcaption>
-    <span lang="en">A logical scenario: one template, a range for every parameter, thousands of concrete test runs.</span>
-    <span lang="zh-Hant">邏輯情境：一個模板、每個參數一段範圍，展開成上千個具體測試。</span>
+    <span lang="en">A logical scenario: one template with a range for each parameter, sampled into many concrete test runs.</span>
+    <span lang="zh-Hant">邏輯情境：一個模板，每個參數給一段範圍，再取樣成許多具體的測試。</span>
   </figcaption>
 </figure>
 
@@ -128,7 +128,7 @@ footer { margin: 72px 0 40px; color: var(--muted); font-size: 14px; }
     <h3>PISA: A Distributed Platform for Cross-Simulator Autonomous Vehicle Testing at Scale</h3>
     <div class="meta"><span lang="en">M.S. thesis, NYCU, 2026 · paper and code to be released upon publication</span><span lang="zh-Hant">碩士論文，陽明交大，2026｜論文與程式碼將於發表後公開</span></div>
     <p lang="en">Runs the same driving scenarios against different simulators (CARLA, esmini, MetaDrive) to test the planning and control stack of Autoware and other AV systems. I designed the scaling layer: a Rust task queue (Actix, SeaORM, PostgreSQL), a Go scheduler that submits work to SLURM, and a Python executor that orchestrates simulator and AV containers over gRPC.</p>
-    <p lang="zh-Hant">讓同一組駕駛情境可以在不同模擬器（CARLA、esmini、MetaDrive）上執行，用來測試 Autoware 等自駕系統的 planning 與 control。我負責擴展層的設計：Rust 任務佇列（Actix、SeaORM、PostgreSQL）、將工作送進 SLURM 的 Go 排程器，以及透過 gRPC 協調模擬器與自駕系統容器的 Python executor。</p>
+    <p lang="zh-Hant">讓同一組駕駛情境可以在不同模擬器（CARLA、esmini、MetaDrive）上執行，用來測試 Autoware 等自駕系統的 planning 與 control。擴展層是我設計的：Rust 任務佇列（Actix、SeaORM、PostgreSQL）、將工作送進 SLURM 的 Go 排程器，以及透過 gRPC 協調模擬器與自駕系統容器的 Python executor。</p>
     <div class="tags">Rust · Go · Python · SLURM · Apptainer · Docker · gRPC · PostgreSQL</div>
   </div>
   <div class="entry">
@@ -144,13 +144,20 @@ footer { margin: 72px 0 40px; color: var(--muted); font-size: 14px; }
   <div class="entry">
     <h3><span lang="en">Geriatric assessment app, Taipei Veterans General Hospital</span><span lang="zh-Hant">老年周全性評估 App（臺北榮總）</span></h3>
     <p lang="en">An offline-capable iPad web app that replaces a 17-page paper assessment booklet, designed for Apple Pencil input. TypeScript, Vite, and a Node + PostgreSQL backend, deployed with Docker and nginx.</p>
-    <p lang="zh-Hant">將 17 頁紙本評估表數位化的 iPad PWA，支援 Apple Pencil 手寫、可離線使用。TypeScript、Vite，後端 Node + PostgreSQL，以 Docker 與 nginx 部署。</p>
+    <p lang="zh-Hant">把 17 頁紙本評估表搬上 iPad 的 PWA，支援 Apple Pencil 手寫、可離線使用。TypeScript、Vite，後端 Node + PostgreSQL，以 Docker 與 nginx 部署。</p>
   </div>
   <div class="entry">
     <h3><a href="https://github.com/lolainta/esmini-bridge-autoware">esmini-bridge-autoware</a></h3>
     <p lang="en">Bridges the esmini OpenSCENARIO player to Autoware, so scenario files can drive Autoware's planning and control in closed loop.</p>
     <p lang="zh-Hant">把 OpenSCENARIO 播放器 esmini 接上 Autoware，讓情境檔可以閉迴路驅動 Autoware 的 planning 與 control。</p>
     <div class="tags">C++ · ROS 2</div>
+  </div>
+  <div class="entry">
+    <h3><span lang="en">ITRI simulator ↔ Autoware bridge</span><span lang="zh-Hant">工研院模擬器 ↔ Autoware 橋接</span></h3>
+    <div class="meta"><span lang="en">Industry collaboration with ITRI, 2024 – 2025 · not public</span><span lang="zh-Hant">與工研院合作，2024 – 2025｜程式碼未公開</span></div>
+    <p lang="en">Connected ITRI's in-house driving simulator to Autoware so its planning and control could be tested in closed loop: the simulator speaks ROS 1, Autoware speaks ROS 2, so I bridged ego state, detected and predicted objects with custom messages, and packaged the whole stack as Docker Compose services.</p>
+    <p lang="zh-Hant">把工研院自研的駕駛模擬器接上 Autoware，讓它的 planning 與 control 能在閉迴路下測試。模擬器走 ROS 1、Autoware 走 ROS 2，我用自訂 message 橋接自車狀態、偵測與預測物件，並把整套環境包成 Docker Compose 服務。</p>
+    <div class="tags">C++ · ROS 1 / ROS 2 · Docker</div>
   </div>
   <div class="entry">
     <h3><a href="https://github.com/lolainta/nuscenes-devkit-cpp">nuscenes-devkit-cpp</a></h3>
@@ -193,8 +200,8 @@ footer { margin: 72px 0 40px; color: var(--muted); font-size: 14px; }
   <div class="entry">
     <h3><span lang="en">System software engineer intern, Hewlett Packard Enterprise</span><span lang="zh-Hant">系統軟體工程實習生，Hewlett Packard Enterprise</span></h3>
     <div class="meta"><span lang="en">SSV team · Jan – Jun 2023</span><span lang="zh-Hant">SSV 團隊｜2023 年 1 – 6 月</span></div>
-    <p lang="en">Built an internal workflow system from scratch with React, FastAPI, and GitHub Actions CI/CD; the team kept using it after I left.</p>
-    <p lang="zh-Hant">從零打造內部工作流程系統（React、FastAPI、GitHub Actions CI/CD），實習結束後團隊仍持續使用。</p>
+    <p lang="en">Built an internal workflow system from scratch with React, FastAPI, and GitHub Actions CI/CD.</p>
+    <p lang="zh-Hant">從零寫了一套內部工作流程系統（React、FastAPI、GitHub Actions CI/CD）。</p>
   </div>
   <div class="entry">
     <h3><span lang="en">Teaching assistant, NYCU CS IT Center</span><span lang="zh-Hant">資工系計中助教，陽明交大</span></h3>
@@ -210,8 +217,8 @@ footer { margin: 72px 0 40px; color: var(--muted); font-size: 14px; }
   </div>
   <div class="entry">
     <h3><span lang="en">Teaching</span><span lang="zh-Hant">教學</span></h3>
-    <p lang="en">TA for Combinatorial Mathematics (2022) and Network Planning &amp; Management / CCNA (2023). Lecturer on STL and data structures at the PCCA winter camp and the first BPCEI programming camp, where I also wrote problems and ran the online judge.</p>
-    <p lang="zh-Hant">「組合數學」（2022）、「網路規劃管理與實務 CCNA」（2023）課程助教。PCCA 冬令營與 BPCEI 首屆資訊營 STL 與資料結構講師，並負責出題與架設 Online Judge。</p>
+    <p lang="en">TA for Combinatorial Mathematics (2022) and Network Planning &amp; Management / CCNA (2023). Taught STL and data structures at two camps: at the PCCA winter camp I also set up the online judge, and for the first BPCEI programming camp I wrote problems and test data.</p>
+    <p lang="zh-Hant">「組合數學」（2022）、「網路規劃管理與實務 CCNA」（2023）課程助教。在 PCCA 冬令營和 BPCEI 第一屆資訊營教 STL 與資料結構；PCCA 的 Online Judge 是我架的，BPCEI 則負責出題和生測資。</p>
   </div>
 </section>
 
