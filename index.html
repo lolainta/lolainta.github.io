@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheng-Liang Chi 紀政良</title>
+<meta name="description" content="Cheng-Liang Chi (紀政良) — software engineer building infrastructure for testing autonomous vehicles at scale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #eef1f0;
+  --ink: #17212b;
+  --muted: #56626e;
+  --line: #c9d0d2;
+  --asphalt: #2f3a45;
+  --marking: #e3a700;
+  --link: #1f56c8;
+  --ego: #1f56c8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #151b21; --ink: #e6eaec; --muted: #9aa6b0; --line: #2d3740;
+    --asphalt: #263039; --marking: #f0b820; --link: #7fa6ff; --ego: #6f97ff;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 17px/1.6 "Schibsted Grotesk", "Noto Sans TC", system-ui, sans-serif;
+}
+[data-lang="zh"] body { font-family: "Noto Sans TC", "Schibsted Grotesk", system-ui, sans-serif; line-height: 1.75; }
+[data-lang="en"] [lang="zh-Hant"], [data-lang="zh"] [lang="en"] { display: none; }
+a { color: var(--link); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--marking); outline-offset: 3px; }
+.wrap { max-width: 44rem; margin: 0 auto; padding: 0 16px; }
+
+header.top { display: flex; justify-content: flex-end; padding-top: 20px; }
+.lang {
+  font: inherit; font-size: 14px; color: var(--ink); background: none; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px;
+}
+
+.hero h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; margin: 48px 0 8px; }
+.hero h1 small { display: block; font-size: 0.45em; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-top: 8px; }
+.hero p.lede { font-size: 1.2rem; max-width: 36rem; margin: 16px 0 0; }
+
+/* The scenario strip: the one loud thing on the page */
+.road { margin: 40px 0 8px; }
+.road svg { display: block; width: 100%; height: auto; }
+.road figcaption { font-size: 13px; color: var(--muted); }
+#traj { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.2s 0.4s ease-out forwards; }
+#ego { offset-path: path("M40 94 C 150 94, 190 50, 300 50 L 520 50"); offset-rotate: auto; animation: drive 2.2s 0.4s ease-out forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes drive { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  #traj { animation: none; stroke-dashoffset: 0; }
+  #ego { animation: none; offset-distance: 100%; }
+}
+
+section { margin-top: 56px; }
+h2 { font-size: 1.35rem; font-weight: 700; margin: 0 0 16px; padding-bottom: 6px; border-bottom: 3px solid var(--marking); display: inline-block; }
+h3 { font-size: 1.05rem; margin: 0; }
+.entry { margin: 0 0 24px; }
+.entry .meta { color: var(--muted); font-size: 15px; }
+.entry p, .entry ul { margin: 4px 0 0; }
+ul { padding-left: 1.2em; }
+li { margin: 2px 0; }
+.tags { color: var(--muted); font-size: 14px; margin-top: 4px; }
+details { margin-top: 12px; }
+summary { cursor: pointer; color: var(--link); }
+.contact { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+footer { margin: 72px 0 40px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <button class="lang" id="lang" type="button" aria-label="Switch language / 切換語言">中文</button>
+</header>
+
+<main>
+<div class="hero">
+  <h1>Cheng-Liang Chi<small>紀政良 · LolaInTa</small></h1>
+  <p class="lede" lang="en">I build software that tests self-driving cars before they reach the road: scenario simulation, schedulers that fan thousands of runs out across a GPU cluster, and the Linux and network plumbing underneath.</p>
+  <p class="lede" lang="zh-Hant">我寫讓自駕車在上路前先被測試的軟體：情境模擬、把上千個測試分派到 GPU 叢集上的排程系統，以及底下的 Linux 與網路基礎設施。</p>
+</div>
+
+<figure class="road" aria-hidden="true">
+  <svg viewBox="0 0 600 160" role="img">
+    <rect x="0" y="22" width="600" height="100" fill="var(--asphalt)"/>
+    <line x1="0" y1="72" x2="600" y2="72" stroke="var(--marking)" stroke-width="2" stroke-dasharray="18 14"/>
+    <line x1="0" y1="24" x2="600" y2="24" stroke="#fff" stroke-opacity=".7" stroke-width="2"/>
+    <line x1="0" y1="120" x2="600" y2="120" stroke="#fff" stroke-opacity=".7" stroke-width="2"/>
+    <!-- lead vehicle -->
+    <rect x="250" y="82" width="64" height="24" rx="3" fill="#d9dee2"/>
+    <!-- planned trajectory -->
+    <path id="traj" pathLength="1" d="M40 94 C 150 94, 190 50, 300 50 L 520 50" fill="none" stroke="var(--marking)" stroke-width="2.5"/>
+    <!-- ego vehicle -->
+    <rect id="ego" x="-20" y="-10" width="40" height="20" rx="4" fill="var(--ego)" stroke="#fff" stroke-width="1.5"/>
+    <!-- parameter annotations -->
+    <g font-family="Schibsted Grotesk, sans-serif" font-size="11" fill="var(--muted)">
+      <line x1="60" y1="134" x2="250" y2="134" stroke="var(--muted)"/>
+      <line x1="60" y1="129" x2="60" y2="139" stroke="var(--muted)"/>
+      <line x1="250" y1="129" x2="250" y2="139" stroke="var(--muted)"/>
+      <text x="155" y="152" text-anchor="middle">gap ∈ [10, 110] m</text>
+      <line x1="572" y1="24" x2="572" y2="72" stroke="var(--muted)"/>
+      <text x="566" y="14" text-anchor="end">lane width ∈ [2.5, 3.75] m</text>
+    </g>
+  </svg>
+  <figcaption>
+    <span lang="en">A logical scenario: one template, a range for every parameter, thousands of concrete test runs.</span>
+    <span lang="zh-Hant">邏輯情境：一個模板、每個參數一段範圍，展開成上千個具體測試。</span>
+  </figcaption>
+</figure>
+
+<section id="now">
+  <h2><span lang="en">Now</span><span lang="zh-Hant">近況</span></h2>
+  <p lang="en">I finished my M.S. in Computer Science at National Yang Ming Chiao Tung University (NYCU) in August 2026. Through my advisor's collaboration with Taipei Veterans General Hospital, I'm currently building clinical information systems that streamline the care team's workflow. <strong>I'm looking for a software engineering role.</strong></p>
+  <p lang="zh-Hant">2026 年 8 月自陽明交通大學資訊工程研究所畢業。目前透過指導教授與臺北榮民總醫院的合作，協助建置醫療資訊系統，優化醫療團隊的工作流程。<strong>正在尋找軟體工程師的工作機會。</strong></p>
+</section>
+
+<section id="research">
+  <h2><span lang="en">Research</span><span lang="zh-Hant">研究</span></h2>
+  <div class="entry">
+    <h3>PISA: A Distributed Platform for Cross-Simulator Autonomous Vehicle Testing at Scale</h3>
+    <div class="meta"><span lang="en">M.S. thesis, NYCU, 2026 · paper and code to be released upon publication</span><span lang="zh-Hant">碩士論文，陽明交大，2026｜論文與程式碼將於發表後公開</span></div>
+    <p lang="en">Runs the same driving scenarios against different simulators (CARLA, esmini, MetaDrive) to test the planning and control stack of Autoware and other AV systems. I designed the scaling layer: a Rust task queue (Actix, SeaORM, PostgreSQL), a Go scheduler that submits work to SLURM, and a Python executor that orchestrates simulator and AV containers over gRPC.</p>
+    <p lang="zh-Hant">讓同一組駕駛情境可以在不同模擬器（CARLA、esmini、MetaDrive）上執行，用來測試 Autoware 等自駕系統的 planning 與 control。我負責擴展層的設計：Rust 任務佇列（Actix、SeaORM、PostgreSQL）、將工作送進 SLURM 的 Go 排程器，以及透過 gRPC 協調模擬器與自駕系統容器的 Python executor。</p>
+    <div class="tags">Rust · Go · Python · SLURM · Apptainer · Docker · gRPC · PostgreSQL</div>
+  </div>
+  <div class="entry">
+    <h3>V2X-based Logical Scenario Understanding with Vision-Language Models</h3>
+    <div class="meta"><strong>Cheng-Liang Chi</strong>, Zi-Hui Li, Yu-Hsiang Chen, Yi-Ting Chen · ICCV 2025 DriveX Workshop (extended abstract)</div>
+    <p lang="en">Built a 9K-scenario multi-view dataset by composing OpenSCENARIO templates and rendering each from ten viewpoints (ego, drone, infrastructure), then benchmarked Qwen2.5-VL and Cosmos-Reason1 on video-level scenario classification with chain-of-thought and in-context prompting.</p>
+    <p lang="zh-Hant">組合 OpenSCENARIO 模板產生 9,000 個情境，並從自車、無人機、路側共十個視角算繪成多視角資料集；再以 chain-of-thought 與 in-context learning 評測 Qwen2.5-VL、Cosmos-Reason1 等模型的影片情境分類能力。</p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2><span lang="en">Selected projects</span><span lang="zh-Hant">專案</span></h2>
+  <div class="entry">
+    <h3><span lang="en">Geriatric assessment app, Taipei Veterans General Hospital</span><span lang="zh-Hant">老年周全性評估 App（臺北榮總）</span></h3>
+    <p lang="en">An offline-capable iPad web app that replaces a 17-page paper assessment booklet, designed for Apple Pencil input. TypeScript, Vite, and a Node + PostgreSQL backend, deployed with Docker and nginx.</p>
+    <p lang="zh-Hant">將 17 頁紙本評估表數位化的 iPad PWA，支援 Apple Pencil 手寫、可離線使用。TypeScript、Vite，後端 Node + PostgreSQL，以 Docker 與 nginx 部署。</p>
+  </div>
+  <div class="entry">
+    <h3><a href="https://github.com/lolainta/esmini-bridge-autoware">esmini-bridge-autoware</a></h3>
+    <p lang="en">Bridges the esmini OpenSCENARIO player to Autoware, so scenario files can drive Autoware's planning and control in closed loop.</p>
+    <p lang="zh-Hant">把 OpenSCENARIO 播放器 esmini 接上 Autoware，讓情境檔可以閉迴路驅動 Autoware 的 planning 與 control。</p>
+    <div class="tags">C++ · ROS 2</div>
+  </div>
+  <div class="entry">
+    <h3><a href="https://github.com/lolainta/nuscenes-devkit-cpp">nuscenes-devkit-cpp</a></h3>
+    <p lang="en">A C++ reimplementation of the nuScenes dataset SDK with Python bindings, for faster indexing and queries on large autonomous-driving datasets.</p>
+    <p lang="zh-Hant">以 C++ 重寫 nuScenes 資料集 SDK 並提供 Python 介面，加速大型自駕資料集的索引與查詢。</p>
+  </div>
+  <div class="entry">
+    <h3><a href="https://github.com/lolainta/NYCU-OSC-2024-Spring">A Raspberry Pi kernel in Rust</a></h3>
+    <p lang="en">Bootloader, memory allocator, and kernel written from scratch in Rust for a Raspberry Pi 3 (runs on QEMU too).</p>
+    <p lang="zh-Hant">用 Rust 從零寫給樹莓派 3 的 bootloader、記憶體配置器與 kernel，也能在 QEMU 上執行。</p>
+  </div>
+  <div class="entry">
+    <h3><a href="https://github.com/NYCUarchery/WhereDidIShoot">WhereDidIShoot</a></h3>
+    <p lang="en">A web app for the NYCU archery team to record shots, see where arrows land, and export the data.</p>
+    <p lang="zh-Hant">幫交大射箭隊記錄每一箭、視覺化落點並匯出資料的網頁工具。</p>
+  </div>
+  <details>
+    <summary><span lang="en">More: coursework and smaller projects</span><span lang="zh-Hant">更多：課程與小型專案</span></summary>
+    <ul>
+      <li><a href="https://github.com/lolainta/idol-hairstyle-editing">idol-hairstyle-editing</a>: <span lang="en">hairstyle editing with SAM2 and a Streamlit UI (deep learning final project)</span><span lang="zh-Hant">以 SAM2 做髮型編輯，附 Streamlit 介面（深度學習期末專題）</span></li>
+      <li><a href="https://github.com/lolainta/Competitive-Programming">Competitive-Programming</a>: <span lang="en">my C++ template and the DBN debugger</span><span lang="zh-Hant">個人 C++ 模板與 DBN debugger</span></li>
+      <li><span lang="en">Systems coursework: IRC and DNS servers, a ptrace debugger, a Linux kernel module, an FTP client/server over gRPC, ROP and MITM labs</span><span lang="zh-Hant">系統類課程：IRC 與 DNS server、ptrace debugger、Linux kernel module、gRPC FTP、ROP 與 MITM 實作</span></li>
+      <li><a href="https://github.com/lolainta?tab=repositories"><span lang="en">All repositories on GitHub</span><span lang="zh-Hant">GitHub 上的所有 repo</span></a></li>
+    </ul>
+  </details>
+</section>
+
+<section id="experience">
+  <h2><span lang="en">Experience</span><span lang="zh-Hant">經歷</span></h2>
+  <div class="entry">
+    <h3><span lang="en">Software engineer (research collaboration), Taipei Veterans General Hospital</span><span lang="zh-Hant">醫療資訊系統開發（產學合作），臺北榮民總醫院</span></h3>
+    <div class="meta">2026 –</div>
+  </div>
+  <div class="entry">
+    <h3><span lang="en">Graduate researcher, NYCU</span><span lang="zh-Hant">研究生，陽明交大資工所</span></h3>
+    <div class="meta">2024 – 2026</div>
+    <p lang="en">Autonomous-driving testing and scenario generation; ran the lab's SLURM GPU cluster.</p>
+    <p lang="zh-Hant">自駕車測試與情境生成研究；維運實驗室的 SLURM GPU 叢集。</p>
+  </div>
+  <div class="entry">
+    <h3><span lang="en">System software engineer intern, Hewlett Packard Enterprise</span><span lang="zh-Hant">系統軟體工程實習生，Hewlett Packard Enterprise</span></h3>
+    <div class="meta"><span lang="en">SSV team · Jan – Jun 2023</span><span lang="zh-Hant">SSV 團隊｜2023 年 1 – 6 月</span></div>
+    <p lang="en">Built an internal workflow system from scratch with React, FastAPI, and GitHub Actions CI/CD; the team kept using it after I left.</p>
+    <p lang="zh-Hant">從零打造內部工作流程系統（React、FastAPI、GitHub Actions CI/CD），實習結束後團隊仍持續使用。</p>
+  </div>
+  <div class="entry">
+    <h3><span lang="en">Teaching assistant, NYCU CS IT Center</span><span lang="zh-Hant">資工系計中助教，陽明交大</span></h3>
+    <div class="meta">2022 – 2024</div>
+    <ul lang="en">
+      <li>Network: ran the department network on Cisco IOS/NX-OS and Junos (VLAN, OSPF, ACL, VRRP, LACP); put every switch config under version control; centralized device logs in OpenSearch.</li>
+      <li>PC: managed ~200 lab machines with Ansible and AWX; wrote playbooks that deploy VM images to Proxmox VE and join them to Active Directory.</li>
+    </ul>
+    <ul lang="zh-Hant">
+      <li>Net 組：以 Cisco IOS／NX-OS 與 Junos 維運系館網路（VLAN、OSPF、ACL、VRRP、LACP）；將所有網通設備設定納入版本控制，並以 OpenSearch 集中管理 log。</li>
+      <li>PC 組：以 Ansible 與 AWX 管理約 200 台電腦教室主機；撰寫部署 VM image 至 Proxmox VE 並加入 AD 的 playbook。</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <h3><span lang="en">Teaching</span><span lang="zh-Hant">教學</span></h3>
+    <p lang="en">TA for Combinatorial Mathematics (2022) and Network Planning &amp; Management / CCNA (2023). Lecturer on STL and data structures at the PCCA winter camp and the first BPCEI programming camp, where I also wrote problems and ran the online judge.</p>
+    <p lang="zh-Hant">「組合數學」（2022）、「網路規劃管理與實務 CCNA」（2023）課程助教。PCCA 冬令營與 BPCEI 首屆資訊營 STL 與資料結構講師，並負責出題與架設 Online Judge。</p>
+  </div>
+</section>
+
+<section id="awards">
+  <h2><span lang="en">Awards</span><span lang="zh-Hant">獲獎</span></h2>
+  <ul lang="en">
+    <li>ICPC Asia Taipei-Hsinchu Regional: Bronze (2020)</li>
+    <li>ICPC Asia Taiwan Online Programming Contest: Silver, 31st (2023); qualified for regionals 2020, 2021, 2023</li>
+    <li>Academic Achievement Award, NYCU (top 5%), twice</li>
+    <li>CTF: ASIS CTF Quals 2023, 100th of 657; BuckeyeCTF 2023, 153rd of 672</li>
+  </ul>
+  <ul lang="zh-Hant">
+    <li>ICPC 亞洲區台北-新竹站 銅牌（2020）</li>
+    <li>TOPC 全國大專程式競賽 銀牌、第 31 名（2023）；2020、2021、2023 晉級 ICPC</li>
+    <li>陽明交大書卷獎（前 5%）兩次</li>
+    <li>CTF：ASIS CTF Quals 2023 第 100／657 名、BuckeyeCTF 2023 第 153／672 名</li>
+  </ul>
+  <details>
+    <summary><span lang="en">High school</span><span lang="zh-Hant">高中</span></summary>
+    <ul lang="en">
+      <li>Recommended to the Asian Pacific Mathematics Olympiad (APMO) through APMOC, 2020</li>
+      <li>Passed the first round of the Taiwan Physics Olympiad selection, 2020</li>
+      <li>TRML national team contest: Bronze, twice</li>
+      <li>ARML Local (Yunlin–Chiayi): 1st individual, 2nd team, 2017</li>
+      <li>APX National Science Proficiency Test: Gold in physics (top 1%), top 5% in chemistry</li>
+      <li>Changhua–Yunlin–Chiayi regional mathematics competition: 6th</li>
+      <li>Tsing Hua Cup chemistry: Bronze</li>
+      <li>Science class, National Chiayi Senior High School</li>
+    </ul>
+    <ul lang="zh-Hant">
+      <li>2020 年經 APMOC 推薦參加亞太數學奧林匹亞（APMO）</li>
+      <li>通過 2020 物理奧林匹亞初試</li>
+      <li>TRML 全國團體銅牌兩次</li>
+      <li>2017 ARML Local 雲嘉考區 個人第一、團體第二</li>
+      <li>第二屆 APX 全國高中數理能力檢定 物理金牌（全國前 1%）、化學全國前 5%</li>
+      <li>108 學年度彰雲嘉區數學學科能力競賽 第六名</li>
+      <li>清華盃化學 個人銅牌</li>
+      <li>嘉義高中科學班</li>
+    </ul>
+  </details>
+</section>
+
+<section id="education">
+  <h2><span lang="en">Education</span><span lang="zh-Hant">學歷</span></h2>
+  <div class="entry">
+    <h3><span lang="en">M.S., Computer Science and Engineering, NYCU</span><span lang="zh-Hant">陽明交通大學 資訊工程研究所 碩士</span></h3>
+    <div class="meta">2024 – 2026 · GPA 3.88/4.3</div>
+  </div>
+  <div class="entry">
+    <h3><span lang="en">B.S., Computer Science, NYCU</span><span lang="zh-Hant">陽明交通大學 資訊工程學系 學士</span></h3>
+    <div class="meta">2020 – 2024 · GPA 4.09/4.3</div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2><span lang="en">Contact</span><span lang="zh-Hant">聯絡</span></h2>
+  <div class="contact">
+    <a href="mailto:me@lolainta.tw">me@lolainta.tw</a>
+    <a href="https://github.com/lolainta">GitHub</a>
+    <a href="https://www.linkedin.com/in/lolainta">LinkedIn</a>
+    <a href="https://codeforces.com/profile/lolainta">Codeforces</a>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Cheng-Liang Chi</footer>
+</div>
+<script>
+// ponytail: two-language toggle, no i18n lib; guess from browser, remember choice
+const root = document.documentElement, btn = document.getElementById('lang');
+function set(l) {
+  root.dataset.lang = l;
+  root.lang = l === 'zh' ? 'zh-Hant' : 'en';
+  btn.textContent = l === 'zh' ? 'English' : '中文';
+  try { localStorage.setItem('lang', l); } catch {}
+}
+let saved = null;
+try { saved = localStorage.getItem('lang'); } catch {}
+set(saved || (navigator.language.startsWith('zh') ? 'zh' : 'en'));
+btn.onclick = () => set(root.dataset.lang === 'zh' ? 'en' : 'zh');
+</script>
+</body>
+</html>
