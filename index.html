@@ -8,6 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
+// ponytail: pick language before first paint; toggle wiring lives at the end of body
+(() => { let l = null; try { l = localStorage.getItem('lang'); } catch {}
+  l = l || (navigator.language.startsWith('zh') ? 'zh' : 'en');
+  document.documentElement.dataset.lang = l; document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en'; })();
+</script>
 <style>
 :root {
   --bg: #eef1f0;
@@ -33,7 +39,7 @@ body {
   margin: 0; background: var(--bg); color: var(--ink);
   font: 17px/1.6 "Schibsted Grotesk", "Noto Sans TC", system-ui, sans-serif;
 }
-[data-lang="zh"] body { font-family: "Noto Sans TC", "Schibsted Grotesk", system-ui, sans-serif; line-height: 1.75; }
+[data-lang="zh"] body { line-height: 1.75; }
 [data-lang="en"] [lang="zh-Hant"], [data-lang="zh"] [lang="en"] { display: none; }
 a { color: var(--link); text-underline-offset: 3px; }
 a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--marking); outline-offset: 3px; }
@@ -65,6 +71,7 @@ nav.toc { display: none; }
 .side-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 28px; font-size: 15px; }
 @media (min-width: 1024px) { .side-foot { margin-top: auto; } }
 .lang {
+  align-self: flex-end; display: block; margin: 0 0 16px auto;
   font: inherit; font-size: 14px; color: var(--ink); background: none; cursor: pointer;
   border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px;
 }
@@ -105,6 +112,7 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
 <body>
 <div class="page">
 <header class="side">
+  <button class="lang" id="lang" type="button" aria-label="Switch language / 切換語言">中文</button>
   <h1>Cheng-Liang Chi</h1>
   <div class="zh-name">紀政良</div>
   <p class="role"><span lang="en">Software engineer: AV simulation testing and infrastructure</span><span lang="zh-Hant">軟體工程師｜自駕車模擬測試與基礎設施</span></p>
@@ -125,7 +133,6 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <a href="https://github.com/lolainta">GitHub</a>
     <a href="https://www.linkedin.com/in/lolainta">LinkedIn</a>
     <a href="https://codeforces.com/profile/lolainta">Codeforces</a>
-    <button class="lang" id="lang" type="button" aria-label="Switch language / 切換語言">中文</button>
   </div>
 </header>
 
@@ -382,9 +389,7 @@ function set(l) {
   btn.textContent = l === 'zh' ? 'English' : '中文';
   try { localStorage.setItem('lang', l); } catch {}
 }
-let saved = null;
-try { saved = localStorage.getItem('lang'); } catch {}
-set(saved || (navigator.language.startsWith('zh') ? 'zh' : 'en'));
+btn.textContent = root.dataset.lang === 'zh' ? 'English' : '中文';
 btn.onclick = () => set(root.dataset.lang === 'zh' ? 'en' : 'zh');
 
 // highlight the nav entry for the section in view
