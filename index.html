@@ -48,7 +48,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 
 /* Two columns on desktop: fixed intro + nav on the left, content scrolls on the right */
 .page { max-width: 72rem; margin: 0 auto; padding: 0 16px; }
-.side { padding: 48px 0 8px; }
+.side { padding: 64px 0 8px; }
 @media (min-width: 1024px) {
   .page { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; padding: 0 48px; }
   .side { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; padding: 88px 0 48px; }
@@ -73,10 +73,13 @@ nav.toc { display: none; }
 .side-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 28px; font-size: 15px; }
 @media (min-width: 1024px) { .side-foot { margin-top: auto; } }
 .lang {
-  align-self: flex-end; display: block; margin: 0 0 16px auto;
-  font: inherit; font-size: 14px; color: var(--ink); background: none; cursor: pointer;
-  border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px;
+  position: absolute; top: 16px; right: 16px; z-index: 10; display: flex;
+  font: inherit; font-size: 14px; color: var(--muted); background: var(--bg); cursor: pointer;
+  border: 1px solid var(--line); border-radius: 999px; padding: 0; overflow: hidden;
 }
+.lang span { padding: 4px 12px; }
+@media (min-width: 1024px) { .lang { position: fixed; } }
+[data-lang="en"] .l-en, [data-lang="zh"] .l-zh { background: var(--ink); color: var(--bg); font-weight: 700; }
 
 /* The scenario strip: the one loud thing on the page */
 .road { margin: 0 0 32px; }
@@ -109,6 +112,9 @@ ul.pills { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-w
 ul.pills li { margin: 0; font-size: 13px; padding: 2px 10px; border-radius: 999px; background: var(--pill); }
 details { margin-top: 8px; }
 summary { cursor: pointer; color: var(--link); }
+p, li, .org { text-wrap: pretty; }
+h1, h3, .role { text-wrap: balance; }
+.nw { white-space: nowrap; }
 .more h3.sub { font-size: 15px; color: var(--muted); font-weight: 500; margin: 16px 0 4px; }
 ul.cols { margin: 0; }
 ul.cols li:first-child { margin-top: 0; }
@@ -117,9 +123,9 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
 </style>
 </head>
 <body>
+<button class="lang" id="lang" type="button" aria-label="Switch language / 切換語言"><span class="l-en">EN</span><span class="l-zh">中文</span></button>
 <div class="page">
 <header class="side">
-  <button class="lang" id="lang" type="button" aria-label="Switch language / 切換語言">中文</button>
   <h1>Cheng-Liang Chi</h1>
   <div class="zh-name">紀政良</div>
   <p class="role"><span lang="en">Infrastructure and software engineer</span><span lang="zh-Hant">基礎設施與軟體工程師</span></p>
@@ -157,7 +163,7 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <div class="when">2024 – 2026</div>
     <div>
       <h3><span lang="en">M.S., Computer Science and Engineering</span><span lang="zh-Hant">資訊科學與工程研究所 碩士</span></h3>
-      <div class="org"><span lang="en">National Yang Ming Chiao Tung University · GPA 3.88/4.3</span><span lang="zh-Hant">陽明交通大學｜GPA 3.88/4.3</span></div>
+      <div class="org"><span lang="en"><span class="nw">National Yang Ming Chiao Tung University</span> · <span class="nw">GPA 3.88/4.3</span></span><span lang="zh-Hant"><span class="nw">陽明交通大學</span>｜<span class="nw">GPA 3.88/4.3</span></span></div>
       <p lang="en">Coursework: Deep Learning (A+), Deep Learning Lab (A+), Image Processing (A+), Computer Vision, User Experience and Usability Evaluation.</p>
       <p lang="zh-Hant">修課：深度學習（A+）、深度學習實驗（A+）、影像處理（A+）、電腦視覺、使用者經驗與易用性評估。</p>
     </div>
@@ -166,7 +172,7 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <div class="when">2020 – 2024</div>
     <div>
       <h3><span lang="en">B.S., Computer Science (honors track)</span><span lang="zh-Hant">資訊工程學系甲組 學士</span></h3>
-      <div class="org"><span lang="en">National Yang Ming Chiao Tung University · GPA 4.09/4.3 · ranked 6th of 49</span><span lang="zh-Hant">陽明交通大學｜GPA 4.09/4.3｜班排 6/49</span></div>
+      <div class="org"><span lang="en"><span class="nw">National Yang Ming Chiao Tung University</span> · <span class="nw">GPA 4.09/4.3</span> · <span class="nw">ranked 6th of 49</span></span><span lang="zh-Hant"><span class="nw">陽明交通大學</span>｜<span class="nw">GPA 4.09/4.3</span>｜<span class="nw">班排 6/49</span></span></div>
       <ul lang="en">
         <li>A+ in 8 of the 9 core required courses, all taught in English; top of the class in Operating Systems and in Computer Organization, where my processor design was the fastest in the class.</li>
         <li>Took 8 graduate courses as an undergraduate (24 credits, later credited toward the M.S.): Network Security, Secure Programming, Advanced UNIX Programming, Intractable Problems, Computer Networks, Video Compression, Numerical Software Development, and Perception and Decision Making in Intelligent Systems.</li>
@@ -236,10 +242,10 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
       <h3><span lang="en">Course teaching assistant</span><span lang="zh-Hant">課程助教</span></h3>
       <div class="org"><span lang="en">NYCU</span><span lang="zh-Hant">陽明交大</span></div>
       <ul lang="en">
-        <li>Digital Image Processing, <a href="https://sites.google.com/site/yitingchen0524/">Prof. Yi-Ting Chen</a> (fall 2025)</li>
-        <li>Introduction to Artificial Intelligence, <a href="https://sites.google.com/site/yitingchen0524/">Prof. Yi-Ting Chen</a> and <a href="https://gracetfg2.github.io/">Prof. Yu-Chun Yen</a> (spring 2025)</li>
-        <li>Network Planning and Management Practices (CCNA), <a href="https://sites.google.com/view/cctseng">Prof. Chien-Chao Tseng</a> (spring 2023, spring 2024)</li>
-        <li>Combinatorial Mathematics, <a href="https://www.cs.nycu.edu.tw/~mjkao/">Prof. Mong-Jen Kao</a> (spring 2022)</li>
+        <li>Digital Image Processing, <a href="https://sites.google.com/site/yitingchen0524/">Prof. Yi-Ting Chen</a> <span class="nw">(fall 2025)</span></li>
+        <li>Introduction to Artificial Intelligence, <a href="https://sites.google.com/site/yitingchen0524/">Prof. Yi-Ting Chen</a> and <a href="https://gracetfg2.github.io/">Prof. Yu-Chun Yen</a> <span class="nw">(spring 2025)</span></li>
+        <li>Network Planning and Management Practices (CCNA), <a href="https://sites.google.com/view/cctseng">Prof. Chien-Chao Tseng</a> <span class="nw">(spring 2023, spring 2024)</span></li>
+        <li>Combinatorial Mathematics, <a href="https://www.cs.nycu.edu.tw/~mjkao/">Prof. Mong-Jen Kao</a> <span class="nw">(spring 2022)</span></li>
       </ul>
       <ul lang="zh-Hant">
         <li>數位影像處理，<a href="https://sites.google.com/site/yitingchen0524/">陳奕廷</a>教授（2025 秋）</li>
@@ -295,7 +301,7 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <div class="when">2024 – 2026</div>
     <div>
       <h3>PISA: A Distributed Platform for Cross-Simulator Autonomous Vehicle Testing at Scale</h3>
-      <div class="org"><span lang="en">M.S. thesis · paper and code to be released upon publication</span><span lang="zh-Hant">碩士論文｜論文與程式碼將於發表後公開</span></div>
+      <div class="org"><span lang="en"><span class="nw">M.S. thesis</span> · <span class="nw">paper and code to be released upon publication</span></span><span lang="zh-Hant"><span class="nw">碩士論文</span>｜<span class="nw">論文與程式碼將於發表後公開</span></span></div>
       <p lang="en">Runs the same driving scenarios against different simulators (CARLA, esmini, MetaDrive) to test the planning and control stack of Autoware and other AV systems. I designed the scaling layer: a Rust task queue (Actix, SeaORM, PostgreSQL), a Go scheduler that submits work to SLURM, and a Python executor that orchestrates simulator and AV containers over gRPC.</p>
       <p lang="zh-Hant">讓同一組駕駛情境可以在不同模擬器（CARLA、esmini、MetaDrive）上執行，用來測試 Autoware 等自駕系統的 planning 與 control。擴展層是我設計的：Rust 任務佇列（Actix、SeaORM、PostgreSQL）、將工作送進 SLURM 的 Go 排程器，以及透過 gRPC 協調模擬器與自駕系統容器的 Python executor。</p>
       <ul class="pills"><li>Rust</li><li>Go</li><li>Python</li><li>SLURM</li><li>Apptainer</li><li>gRPC</li><li>PostgreSQL</li></ul>
@@ -315,7 +321,7 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <div class="when">2024 – 2025</div>
     <div>
       <h3><span lang="en">ITRI simulator ↔ Autoware bridge</span><span lang="zh-Hant">工研院模擬器 ↔ Autoware 橋接</span></h3>
-      <div class="org"><span lang="en">Industry collaboration with ITRI · not public</span><span lang="zh-Hant">與工研院合作｜程式碼未公開</span></div>
+      <div class="org"><span lang="en"><span class="nw">Industry collaboration with ITRI</span> · <span class="nw">not public</span></span><span lang="zh-Hant"><span class="nw">與工研院合作</span>｜<span class="nw">程式碼未公開</span></span></div>
       <p lang="en">Connected ITRI's in-house driving simulator to Autoware so its planning and control could be tested in closed loop: the simulator speaks ROS 1, Autoware speaks ROS 2, so I bridged ego state, detected and predicted objects with custom messages, and packaged the whole stack as Docker Compose services.</p>
       <p lang="zh-Hant">把工研院自研的駕駛模擬器接上 Autoware，讓它的 planning 與 control 能在閉迴路下測試。模擬器走 ROS 1、Autoware 走 ROS 2，我用自訂 message 橋接自車狀態、偵測與預測物件，並把整套環境包成 Docker Compose 服務。</p>
       <ul class="pills"><li>C++</li><li>ROS 1</li><li>ROS 2</li><li>Docker</li></ul>
@@ -375,15 +381,15 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <summary><span lang="en">More: coursework and smaller projects</span><span lang="zh-Hant">更多：課程與小型專案</span></summary>
     <div class="more">
       <h3 class="sub"><span lang="en">Networking</span><span lang="zh-Hant">網路</span></h3>
-      <ul class="cols"><li><a href="https://github.com/lolainta/NYCU-NP-2022-Fall/tree/main/hw1">Minimized IRC server</a> (RFC 1459)</li><li><a href="https://github.com/lolainta/NYCU-NP-2022-Fall/tree/main/hw2">DNS server</a> (C++)</li><li><a href="https://github.com/lolainta/NYCU-NP-2022-Fall/tree/main/lab8">Reliable data transfer</a></li><li><a href="https://github.com/lolainta/NYCU-OS-2022-Fall">FTP server and client with GUI</a> (Qt, gRPC)</li></ul>
+      <ul class="cols"><li><a href="https://github.com/lolainta/NYCU-NP-2022-Fall/tree/main/hw1">Minimized IRC server</a> <span class="nw">(RFC 1459)</span></li><li><a href="https://github.com/lolainta/NYCU-NP-2022-Fall/tree/main/hw2">DNS server</a> <span class="nw">(C++)</span></li><li><a href="https://github.com/lolainta/NYCU-NP-2022-Fall/tree/main/lab8">Reliable data transfer</a></li><li><a href="https://github.com/lolainta/NYCU-OS-2022-Fall">FTP server and client with GUI</a> <span class="nw">(Qt, gRPC)</span></li></ul>
       <h3 class="sub"><span lang="en">Systems and binary exploitation</span><span lang="zh-Hant">系統與漏洞利用</span></h3>
-      <ul class="cols"><li><a href="https://github.com/lolainta/NYCU-UP-2023-Spring/tree/main/hw2">sdb debugger</a> (ptrace)</li><li><a href="https://github.com/lolainta/NYCU-UP-2023-Spring/tree/main/lab5">Shared-memory kernel module</a> (C99)</li><li><a href="https://github.com/lolainta/NYCU-UP-2023-Spring/tree/main/hw1">Secured API call</a> (GOT/PLT)</li><li><a href="https://github.com/lolainta/NYCU-UP-2023-Spring/tree/main/lab4">Buffer overflow with canary</a></li><li><a href="https://github.com/lolainta/NYCU-UP-2023-Spring/tree/main/lab7">ROP shell</a></li></ul>
+      <ul class="cols"><li><a href="https://github.com/lolainta/NYCU-UP-2023-Spring/tree/main/hw2">sdb debugger</a> <span class="nw">(ptrace)</span></li><li><a href="https://github.com/lolainta/NYCU-UP-2023-Spring/tree/main/lab5">Shared-memory kernel module</a> <span class="nw">(C99)</span></li><li><a href="https://github.com/lolainta/NYCU-UP-2023-Spring/tree/main/hw1">Secured API call</a> <span class="nw">(GOT/PLT)</span></li><li><a href="https://github.com/lolainta/NYCU-UP-2023-Spring/tree/main/lab4">Buffer overflow with canary</a></li><li><a href="https://github.com/lolainta/NYCU-UP-2023-Spring/tree/main/lab7">ROP shell</a></li></ul>
       <h3 class="sub"><span lang="en">Security</span><span lang="zh-Hant">資安</span></h3>
-      <ul class="cols"><li><a href="https://github.com/lolainta/NYCU-CSC-2023-Spring/tree/main/csc-project1">IPsec session hijacking</a> (raw sockets)</li><li><a href="https://github.com/lolainta/NYCU-CSC-2023-Spring/tree/main/csc-project2">MITM and pharming attack</a></li><li><a href="https://github.com/lolainta/NYCU-CSC-2023-Spring/tree/main/csc-project3">Ransomware propagation</a></li></ul>
+      <ul class="cols"><li><a href="https://github.com/lolainta/NYCU-CSC-2023-Spring/tree/main/csc-project1">IPsec session hijacking</a> <span class="nw">(raw sockets)</span></li><li><a href="https://github.com/lolainta/NYCU-CSC-2023-Spring/tree/main/csc-project2">MITM and pharming attack</a></li><li><a href="https://github.com/lolainta/NYCU-CSC-2023-Spring/tree/main/csc-project3">Ransomware propagation</a></li></ul>
       <h3 class="sub"><span lang="en">Machine learning</span><span lang="zh-Hant">機器學習</span></h3>
-      <ul class="cols"><li><a href="https://github.com/lolainta/NYCU-ML-2022-Fall">Handcrafted decision tree</a></li><li><a href="https://github.com/lolainta/idol-hairstyle-editing">Idol hairstyle editing</a> (SAM2, Streamlit)</li></ul>
+      <ul class="cols"><li><a href="https://github.com/lolainta/NYCU-ML-2022-Fall">Handcrafted decision tree</a></li><li><a href="https://github.com/lolainta/idol-hairstyle-editing">Idol hairstyle editing</a> <span class="nw">(SAM2, Streamlit)</span></li></ul>
       <h3 class="sub"><span lang="en">Other</span><span lang="zh-Hant">其他</span></h3>
-      <ul class="cols"><li><a href="https://github.com/lolainta/Competitive-Programming">Competitive programming template</a> (C++, with the DBN debugger)</li><li><a href="https://github.com/lolainta?tab=repositories"><span lang="en">All repositories on GitHub</span><span lang="zh-Hant">GitHub 上的所有 repo</span></a></li></ul>
+      <ul class="cols"><li><a href="https://github.com/lolainta/Competitive-Programming">Competitive programming template</a> <span class="nw">(C++, with the DBN debugger)</span></li><li><a href="https://github.com/lolainta?tab=repositories"><span lang="en">All repositories on GitHub</span><span lang="zh-Hant">GitHub 上的所有 repo</span></a></li></ul>
     </div>
   </details>
 </section>
@@ -478,11 +484,9 @@ const root = document.documentElement, btn = document.getElementById('lang');
 function set(l) {
   root.dataset.lang = l;
   root.lang = l === 'zh' ? 'zh-Hant' : 'en';
-  btn.textContent = l === 'zh' ? 'English' : '中文';
-  try { localStorage.setItem('lang', l); } catch {}
+    try { localStorage.setItem('lang', l); } catch {}
   const u = new URL(location.href); u.searchParams.set('lang', l); history.replaceState(null, '', u);
 }
-btn.textContent = root.dataset.lang === 'zh' ? 'English' : '中文';
 btn.onclick = () => set(root.dataset.lang === 'zh' ? 'en' : 'zh');
 
 // highlight the nav entry for the section in view
