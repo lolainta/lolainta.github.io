@@ -102,6 +102,7 @@ h3 { font-size: 1.05rem; line-height: 1.4; margin: 0; }
 }
 .org { color: var(--muted); font-size: 15px; }
 .item p, .item ul { margin: 6px 0 0; }
+.item > div > ul:first-child { margin-top: 0; }
 ul { padding-left: 1.2em; }
 li { margin: 2px 0; }
 ul.pills { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
@@ -127,7 +128,7 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
       <li><a href="#experience"><span lang="en">Experience</span><span lang="zh-Hant">經歷</span></a></li>
       <li><a href="#research"><span lang="en">Research</span><span lang="zh-Hant">研究</span></a></li>
       <li><a href="#projects"><span lang="en">Projects</span><span lang="zh-Hant">專案</span></a></li>
-      <li><a href="#awards"><span lang="en">Awards</span><span lang="zh-Hant">獲獎</span></a></li>
+      <li><a href="#awards"><span lang="en">Awards</span><span lang="zh-Hant">獲獎與競賽</span></a></li>
     </ol>
   </nav>
   <div class="side-foot">
@@ -135,6 +136,7 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <a href="https://github.com/lolainta">GitHub</a>
     <a href="https://www.linkedin.com/in/lolainta">LinkedIn</a>
     <a href="https://codeforces.com/profile/lolainta">Codeforces</a>
+    <a href="https://ctftime.org/user/173427">CTFtime</a>
   </div>
 </header>
 
@@ -162,11 +164,11 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
       <h3><span lang="en">B.S., Computer Science (honors track)</span><span lang="zh-Hant">資訊工程學系甲組 學士</span></h3>
       <div class="org"><span lang="en">National Yang Ming Chiao Tung University · GPA 4.09/4.3 · ranked 6th of 49</span><span lang="zh-Hant">陽明交通大學｜GPA 4.09/4.3｜班排 6/49</span></div>
       <ul lang="en">
-        <li>A+ in 8 of the 9 core required courses, all taught in English.</li>
+        <li>A+ in 8 of the 9 core required courses, all taught in English; top of the class in Operating Systems and in Computer Organization, where my processor design was the fastest in the class.</li>
         <li>Took 8 graduate courses as an undergraduate (24 credits, later credited toward the M.S.): Network Security, Secure Programming, Advanced UNIX Programming, Intractable Problems, Computer Networks, Video Compression, Numerical Software Development, and Perception and Decision Making in Intelligent Systems.</li>
       </ul>
       <ul lang="zh-Hant">
-        <li>9 門核心必修（英文授課）有 8 門 A+。</li>
+        <li>9 門核心必修（英文授課）有 8 門 A+；作業系統、計算機組織皆全班第一，計組做出全班最快的處理器。</li>
         <li>大學期間修了 8 門研究所課程，共 24 學分，碩班時抵免：網路安全、程式安全、高等 UNIX 程式設計、難解計算問題專論、計算機網路、視訊壓縮、數值軟體開發、智慧系統之感知與決策。</li>
       </ul>
     </div>
@@ -308,6 +310,16 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     </div>
   </article>
   <article class="item">
+    <div class="when">2022 – 2024</div>
+    <div>
+      <h3><span lang="en">Undergraduate research: safety-critical scenario generation</span><span lang="zh-Hant">大學專題：安全關鍵情境生成</span></h3>
+      <div class="org"><span lang="en">With Prof. Yi-Ting Chen, from my second year</span><span lang="zh-Hant">大二下起跟陳奕廷教授做</span></div>
+      <p lang="en">Crashes are rare in real driving data, so we generated accident scenarios from normal traffic plus a target crash type, to test and improve driving models. Worked with the nuScenes dataset and CARLA, and compared against STRIVE, KING, and Social GAN.</p>
+      <p lang="zh-Hant">真實車禍資料很少，所以我們輸入正常車流和想要的車禍類型，生成對應的車禍場景，用來評測和改進自駕模型。使用 nuScenes 資料集與 CARLA，並以 STRIVE、KING、Social GAN 作為 baseline。</p>
+      <ul class="pills"><li>Python</li><li>CARLA</li><li>nuScenes</li></ul>
+    </div>
+  </article>
+  <article class="item">
     <div class="when">2023</div>
     <div>
       <h3><a href="https://github.com/lolainta/nuscenes-devkit-cpp">nuscenes-devkit-cpp</a></h3>
@@ -350,19 +362,61 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
 </section>
 
 <section id="awards">
-  <h2><span lang="en">Awards</span><span lang="zh-Hant">獲獎</span></h2>
-  <ul lang="en">
-    <li>ICPC Asia Taipei-Hsinchu Regional: Bronze (2020)</li>
-    <li>ICPC Asia Taiwan Online Programming Contest: Silver, 31st (2023); qualified for regionals 2020, 2021, 2023</li>
-    <li>Academic Achievement Award, Department of Computer Science, NYCU (top 5%), twice</li>
-    <li>CTF: ASIS CTF Quals 2023, 100th of 657; BuckeyeCTF 2023, 153rd of 672</li>
-  </ul>
-  <ul lang="zh-Hant">
-    <li>ICPC 亞洲區台北-新竹站 銅牌（2020）</li>
-    <li>TOPC 全國大專程式競賽 銀牌、第 31 名（2023）；2020、2021、2023 晉級 ICPC</li>
-    <li>陽明交大資工系書卷獎（前 5%）兩次</li>
-    <li>CTF：ASIS CTF Quals 2023 第 100／657 名、BuckeyeCTF 2023 第 153／672 名</li>
-  </ul>
+  <h2><span lang="en">Awards and competitions</span><span lang="zh-Hant">獲獎與競賽</span></h2>
+  <article class="item">
+    <div class="when">ICPC</div>
+    <div>
+      <ul lang="en">
+        <li>ICPC Asia Taoyuan Regional 2023: Bronze</li>
+        <li>ICPC Asia Taipei-Hsinchu Regional 2020: Bronze</li>
+        <li>ICPC Asia Taiwan Online Programming Contest (TOPC): 31st and Silver (2023), 46th (2022), 49th (2021), 68th (2020); qualified for the regional in 2020, 2021, and 2023</li>
+      </ul>
+      <ul lang="zh-Hant">
+        <li>2023 ICPC 亞洲區桃園站 銅牌</li>
+        <li>2020 ICPC 亞洲區台北-新竹站 銅牌</li>
+        <li>TOPC 全國大專程式競賽：2023 第 31 名銀牌、2022 第 46 名、2021 第 49 名、2020 第 68 名；2020、2021、2023 晉級 ICPC 區域賽</li>
+      </ul>
+    </div>
+  </article>
+  <article class="item">
+    <div class="when">CTF</div>
+    <div>
+      <ul lang="en">
+        <li>ASIS CTF Quals 2023: 100th of 657 teams</li>
+        <li>BuckeyeCTF 2023: 153rd of 672 teams</li>
+      </ul>
+      <ul lang="zh-Hant">
+        <li>ASIS CTF Quals 2023：第 100／657 隊</li>
+        <li>BuckeyeCTF 2023：第 153／672 隊</li>
+      </ul>
+    </div>
+  </article>
+  <article class="item">
+    <div class="when"><span lang="en">Hackathons</span><span lang="zh-Hant">黑客松</span></div>
+    <div>
+      <ul lang="en">
+        <li>Taiwan Junior Hackathon 2021: on a team of four, handled containerized deployment, the MySQL database, and the Flask backend API for a crowdsourcing platform</li>
+        <li>Lawsnote Hackathon 2022: built a LINE bot that helps users sort through legal evidence, working with a team from law and tech</li>
+      </ul>
+      <ul lang="zh-Hant">
+        <li>2021 台灣青年黑客松：四人團隊，負責群眾外包平台的容器化部署、MySQL 資料庫與 Flask 後端 API</li>
+        <li>2022 Lawsnote 法律科技黑客松：和法律背景的隊友一起做協助使用者分析證據的 LINE bot</li>
+      </ul>
+    </div>
+  </article>
+  <article class="item">
+    <div class="when"><span lang="en">Academic</span><span lang="zh-Hant">學業</span></div>
+    <div>
+      <ul lang="en">
+        <li>Academic Achievement Award, Department of Computer Science, NYCU (top 5%), twice</li>
+        <li>Core Course Scholarship, NYCU (fall 2022)</li>
+      </ul>
+      <ul lang="zh-Hant">
+        <li>陽明交大資工系書卷獎（前 5%）兩次</li>
+        <li>111 學年度第 1 學期 核心基礎課程修課獎學金</li>
+      </ul>
+    </div>
+  </article>
   <details>
     <summary><span lang="en">High school</span><span lang="zh-Hant">高中</span></summary>
     <ul lang="en">
