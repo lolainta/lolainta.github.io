@@ -201,8 +201,8 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <div>
       <h3><span lang="en">Software engineer (research collaboration)</span><span lang="zh-Hant">醫療資訊系統開發（產學合作）</span></h3>
       <div class="org"><span lang="en">Taipei Veterans General Hospital</span><span lang="zh-Hant">臺北榮民總醫院</span></div>
-      <p lang="en">Built an offline-capable iPad web app that replaces the hospital's 17-page paper geriatric assessment booklet, designed for Apple Pencil input, with a Node + PostgreSQL backend deployed on Docker and nginx.</p>
-      <p lang="zh-Hant">把 17 頁的紙本老年周全性評估表搬上 iPad：支援 Apple Pencil 手寫、可離線使用的 PWA，後端 Node + PostgreSQL，以 Docker 與 nginx 部署。</p>
+      <p lang="en">Built an offline-capable iPad web app that replaces the hospital's 17-page paper geriatric assessment booklet, designed for Apple Pencil input. The backend is Node and PostgreSQL, deployed with Docker and nginx.</p>
+      <p lang="zh-Hant">把醫院 17 頁的紙本老年周全性評估表搬上 iPad，做成支援 Apple Pencil 手寫、可離線使用的 web app。後端是 Node 與 PostgreSQL，以 Docker 和 nginx 部署。</p>
       <ul class="pills"><li>TypeScript</li><li>Vite</li><li>Node.js</li><li>PostgreSQL</li><li>Docker</li></ul>
     </div>
   </article>
@@ -211,8 +211,8 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <div>
       <h3><span lang="en">Graduate student and lab cluster admin</span><span lang="zh-Hant">研究生、實驗室叢集管理者</span></h3>
       <div class="org"><span lang="en">HCIS Lab, NYCU, advised by <a href="https://sites.google.com/site/yitingchen0524/">Prof. Yi-Ting Chen</a></span><span lang="zh-Hant">陽明交大 HCIS Lab，指導教授<a href="https://sites.google.com/site/yitingchen0524/">陳奕廷</a></span></div>
-      <p lang="en">Built the lab's SLURM cluster out of heterogeneous GPU machines: 11 compute nodes with 29 GPUs across five models (RTX 3090, 3090 Ti, 4080 Super, 4090, RTX PRO 6000) and 376 CPU cores, with GPU sharding so small jobs can share a card. Around it: login and controller nodes, BeeGFS and NFS storage, FreeIPA accounts, and Prometheus alerting with per-job GPU metrics, all deployed with Ansible. Research on large-scale simulation testing for autonomous vehicles.</p>
-      <p lang="zh-Hant">把實驗室規格不一的 GPU 機器建成一套 SLURM 叢集：11 台運算節點、5 種型號共 29 張 GPU（RTX 3090、3090 Ti、4080 Super、4090、RTX PRO 6000）、376 個 CPU 核心，並開啟 GPU sharding 讓小 job 能共用一張卡。周邊有 login 與 controller 節點、BeeGFS 和 NFS 儲存、FreeIPA 帳號管理，以及能對應到每個 job 的 GPU 監控與 Prometheus 告警，全部用 Ansible 部署。研究主題是自駕車的大規模模擬測試。</p>
+      <p lang="en">Built the lab's SLURM cluster out of mismatched GPU workstations: 11 nodes, 29 GPUs across five models, and 376 CPU cores, with GPU sharding so small jobs can share a card. Storage, accounts, and per-job GPU monitoring are all deployed with Ansible.</p>
+      <p lang="zh-Hant">把實驗室規格不一的 GPU 工作站建成一套 SLURM 叢集：11 台運算節點、5 種型號共 29 張 GPU、376 個 CPU 核心，並開啟 GPU sharding 讓小 job 能共用一張卡。儲存、帳號管理和對應到每個 job 的 GPU 監控，全部用 Ansible 部署。</p>
       <ul class="pills"><li>SLURM</li><li>Ansible</li><li>BeeGFS</li><li>FreeIPA</li><li>Prometheus</li><li>Apptainer</li></ul>
     </div>
   </article>
@@ -304,8 +304,8 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <div>
       <h3>PISA: A Distributed Platform for Cross-Simulator Autonomous Vehicle Testing at Scale</h3>
       <div class="org"><span lang="en"><span class="nw">M.S. thesis</span> · <span class="nw">paper and code to be released upon publication</span></span><span lang="zh-Hant"><span class="nw">碩士論文</span>｜<span class="nw">論文與程式碼將於發表後公開</span></span></div>
-      <p lang="en">Runs millions of concrete driving scenarios across different simulators (CARLA, esmini, MetaDrive) to test the decision-making of Autoware and other AV stacks. I designed the scaling layer: a Rust task queue (Actix, SeaORM, PostgreSQL), a Go scheduler that submits work to SLURM, and a Python executor that orchestrates simulator and AV containers over gRPC.</p>
-      <p lang="zh-Hant">在不同模擬器（CARLA、esmini、MetaDrive）上執行數百萬個具體情境，用來測試 Autoware 等自駕系統的決策能力。擴展層是我設計的：Rust 任務佇列（Actix、SeaORM、PostgreSQL）、將工作送進 SLURM 的 Go 排程器，以及透過 gRPC 協調模擬器與自駕系統容器的 Python executor。</p>
+      <p lang="en">Runs millions of concrete driving scenarios across different simulators (CARLA, esmini, MetaDrive) to test the decision-making of Autoware and other AV stacks. I designed the scaling layer: a Rust task queue, a Go scheduler that submits work to SLURM, and a Python executor that orchestrates simulator and AV containers over gRPC.</p>
+      <p lang="zh-Hant">在不同模擬器（CARLA、esmini、MetaDrive）上執行數百萬個具體情境，用來測試 Autoware 等自駕系統的決策能力。擴展層是我設計的：Rust 任務佇列、將工作送進 SLURM 的 Go 排程器，以及透過 gRPC 協調模擬器與自駕系統容器的 Python executor。</p>
       <ul class="pills"><li>Rust</li><li>Go</li><li>Python</li><li>SLURM</li><li>Apptainer</li><li>gRPC</li><li>PostgreSQL</li></ul>
     </div>
   </article>
@@ -314,9 +314,9 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <div>
       <h3>V2X-based Logical Scenario Understanding with Vision-Language Models</h3>
       <div class="org"><strong>Cheng-Liang Chi</strong>, Zi-Hui Li, Yu-Hsiang Chen, Yi-Ting Chen · ICCV 2025 DriveX Workshop (extended abstract)</div>
-      <p lang="en">Built a 9K-scenario multi-view dataset by composing OpenSCENARIO templates and rendering each from ten viewpoints (ego, drone, infrastructure), then benchmarked Qwen2.5-VL and Cosmos-Reason1 on video-level scenario classification with chain-of-thought and in-context prompting.</p>
-      <p lang="zh-Hant">組合 OpenSCENARIO 模板產生 9,000 個情境，並從自車、無人機、路側共十個視角算繪成多視角資料集；再以 chain-of-thought 與 in-context learning 評測 Qwen2.5-VL、Cosmos-Reason1 等模型的影片情境分類能力。</p>
-      <ul class="pills"><li>esmini</li><li>OpenSCENARIO</li><li>Qwen2.5-VL</li><li>Python</li></ul>
+      <p lang="en">Built a 9K-scenario multi-view video dataset by rendering OpenSCENARIO templates from ten viewpoints (ego, drone, infrastructure). Benchmarked vision-language models on classifying the scenarios, with chain-of-thought and in-context prompting.</p>
+      <p lang="zh-Hant">組合 OpenSCENARIO 模板產生 9,000 個情境，從自車、無人機、路側共十個視角算繪成多視角影片資料集。再以 chain-of-thought 與 in-context learning 評測視覺語言模型的情境分類能力。</p>
+      <ul class="pills"><li>esmini</li><li>OpenSCENARIO</li><li>Qwen2.5-VL</li><li>Cosmos-Reason1</li><li>Python</li></ul>
     </div>
   </article>
   <article class="item">
@@ -324,8 +324,8 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <div>
       <h3><span lang="en">ITRI simulator ↔ Autoware bridge</span><span lang="zh-Hant">工研院模擬器 ↔ Autoware 橋接</span></h3>
       <div class="org"><span lang="en"><span class="nw">Industry collaboration with ITRI</span> · <span class="nw">not public</span></span><span lang="zh-Hant"><span class="nw">與工研院合作</span>｜<span class="nw">程式碼未公開</span></span></div>
-      <p lang="en">Connected ITRI's in-house driving simulator to Autoware so its planning and control could be tested in closed loop: the simulator speaks ROS 1, Autoware speaks ROS 2, so I bridged ego state, detected and predicted objects with custom messages, and packaged the whole stack as Docker Compose services.</p>
-      <p lang="zh-Hant">把工研院自研的駕駛模擬器接上 Autoware，讓它的 planning 與 control 能在閉迴路下測試。模擬器走 ROS 1、Autoware 走 ROS 2，我用自訂 message 橋接自車狀態、偵測與預測物件，並把整套環境包成 Docker Compose 服務。</p>
+      <p lang="en">Connected ITRI's in-house driving simulator to Autoware so its planning and control could be tested in closed loop. The simulator speaks ROS 1 and Autoware speaks ROS 2, so I wrote a C++ bridge for ego state and detected and predicted objects, packaged as Docker Compose services.</p>
+      <p lang="zh-Hant">把工研院自研的駕駛模擬器接上 Autoware，讓它的 planning 與 control 能在閉迴路下測試。模擬器走 ROS 1、Autoware 走 ROS 2，所以我用 C++ 寫了 bridge 來傳遞自車狀態與偵測、預測物件，並包成 Docker Compose 服務。</p>
       <ul class="pills"><li>C++</li><li>ROS 1</li><li>ROS 2</li><li>Docker</li></ul>
     </div>
   </article>
@@ -365,8 +365,8 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <div class="when"><span lang="en">College years</span><span lang="zh-Hant">大學時期</span></div>
     <div>
       <h3><span lang="en">Homelab</span><span lang="zh-Hant">個人 Homelab</span></h3>
-      <p lang="en">Started by turning spare PCs into servers in my first year of college. It ran on Proxmox VE with ZFS and NFS storage, routed through pfSense and VyOS, and hosted my own DNS, mail, VPN, LDAP, and web services, monitored with LibreNMS. Now retired.</p>
-      <p lang="zh-Hant">大一開始把閒置電腦改成伺服器。用 Proxmox VE 跑虛擬機，儲存用 ZFS 和 NFS，路由交給 pfSense 和 VyOS，自己架 DNS、Mail、VPN、LDAP 和網站，用 LibreNMS 監控。現已停用。</p>
+      <p lang="en">Started by turning spare PCs into servers in my first year of college. It ran Proxmox VE on ZFS storage behind pfSense and VyOS routers, and hosted my own DNS, mail, VPN, and LDAP. Now retired.</p>
+      <p lang="zh-Hant">大一開始把閒置電腦改成伺服器。用 Proxmox VE 跑虛擬機、ZFS 做儲存，路由交給 pfSense 和 VyOS，自己架 DNS、Mail、VPN 和 LDAP。現已停用。</p>
       <ul class="pills"><li>Proxmox VE</li><li>ZFS</li><li>pfSense</li><li>VyOS</li><li>LibreNMS</li></ul>
     </div>
   </article>
