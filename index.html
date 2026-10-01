@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cheng-Liang Chi 紀政良</title>
-<meta name="description" content="Cheng-Liang Chi (紀政良): software engineer building simulation testing infrastructure for autonomous vehicles.">
+<meta name="description" content="Cheng-Liang Chi (紀政良): infrastructure and software engineer. SLURM clusters, networks, Linux, and the software on top.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -79,7 +79,7 @@ nav.toc { display: none; }
 }
 
 /* The scenario strip: the one loud thing on the page */
-.road { margin: 0 0 8px; }
+.road { margin: 0 0 32px; }
 .road svg { display: block; width: 100%; height: auto; }
 .road figcaption { font-size: 13px; color: var(--muted); }
 #traj { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.2s 0.4s ease-out forwards; }
@@ -117,9 +117,9 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
   <button class="lang" id="lang" type="button" aria-label="Switch language / 切換語言">中文</button>
   <h1>Cheng-Liang Chi</h1>
   <div class="zh-name">紀政良</div>
-  <p class="role"><span lang="en">Software engineer: AV simulation testing and infrastructure</span><span lang="zh-Hant">軟體工程師｜自駕車模擬測試與基礎設施</span></p>
-  <p class="lede" lang="en">I build the software that tests self-driving cars in simulation before they reach the road, from the scenario runners to the scheduler that spreads test runs across a GPU cluster. I've also spent years running Linux servers and a department network.</p>
-  <p class="lede" lang="zh-Hant">我開發自駕車的模擬測試平台：在自駕系統上路之前，先讓它在模擬器裡跑過大量駕駛情境。平台裡執行情境和在 GPU 叢集上排程的部分是我寫的。此外，我也維運過好幾年系上的網路與 Linux 伺服器。</p>
+  <p class="role"><span lang="en">Infrastructure and software engineer</span><span lang="zh-Hant">基礎設施與軟體工程師</span></p>
+  <p class="lede" lang="en">I build and run infrastructure. I turned my lab's mismatched GPU workstations into one SLURM cluster, ran my department's network and its 200 lab PCs for two years, and kept a homelab of my own for years before that. My M.S. thesis put that cluster to work testing self-driving cars in simulation.</p>
+  <p class="lede" lang="zh-Hant">我擅長建置與維運基礎設施：把實驗室規格不一的 GPU 工作站整合成一套 SLURM 叢集，在系計中管過兩年系館網路和約 200 台電腦教室主機，大學時也自己架了好幾年的 homelab。碩士論文就是在這套叢集上大規模跑自駕車的模擬測試。</p>
   <nav class="toc" aria-label="Sections">
     <ol>
       <li><a href="#now"><span lang="en">Now</span><span lang="zh-Hant">近況</span></a></li>
@@ -139,30 +139,6 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
 </header>
 
 <main>
-<figure class="road" aria-hidden="true">
-  <svg viewBox="0 0 600 160">
-    <rect x="0" y="22" width="600" height="100" fill="var(--asphalt)"/>
-    <line x1="0" y1="72" x2="600" y2="72" stroke="var(--marking)" stroke-width="2" stroke-dasharray="18 14"/>
-    <line x1="0" y1="24" x2="600" y2="24" stroke="#fff" stroke-opacity=".7" stroke-width="2"/>
-    <line x1="0" y1="120" x2="600" y2="120" stroke="#fff" stroke-opacity=".7" stroke-width="2"/>
-    <rect x="250" y="82" width="64" height="24" rx="3" fill="#d9dee2"/>
-    <path id="traj" pathLength="1" d="M40 94 C 150 94, 190 50, 300 50 L 520 50" fill="none" stroke="var(--marking)" stroke-width="2.5"/>
-    <rect id="ego" x="-20" y="-10" width="40" height="20" rx="4" fill="var(--ego)" stroke="#fff" stroke-width="1.5"/>
-    <g font-family="Schibsted Grotesk, sans-serif" font-size="11" fill="var(--muted)">
-      <line x1="60" y1="134" x2="250" y2="134" stroke="var(--muted)"/>
-      <line x1="60" y1="129" x2="60" y2="139" stroke="var(--muted)"/>
-      <line x1="250" y1="129" x2="250" y2="139" stroke="var(--muted)"/>
-      <text x="155" y="152" text-anchor="middle">gap ∈ [10, 110] m</text>
-      <line x1="572" y1="24" x2="572" y2="72" stroke="var(--muted)"/>
-      <text x="566" y="14" text-anchor="end">lane width ∈ [2.5, 3.75] m</text>
-    </g>
-  </svg>
-  <figcaption>
-    <span lang="en">A logical scenario: one template with a range for each parameter, sampled into many concrete test runs.</span>
-    <span lang="zh-Hant">邏輯情境：一個模板，每個參數給一段範圍，再取樣成許多具體的測試。</span>
-  </figcaption>
-</figure>
-
 <section id="now">
   <h2><span lang="en">Now</span><span lang="zh-Hant">近況</span></h2>
   <p lang="en">I finished my M.S. in Computer Science and Engineering at National Yang Ming Chiao Tung University (NYCU) in August 2026. Through my advisor's collaboration with Taipei Veterans General Hospital, I'm currently building clinical information systems that streamline the care team's workflow. <strong>I'm looking for a software engineering role.</strong></p>
@@ -219,11 +195,11 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
   <article class="item">
     <div class="when">2024 – 2026</div>
     <div>
-      <h3><span lang="en">Graduate researcher</span><span lang="zh-Hant">研究生</span></h3>
-      <div class="org"><span lang="en">NYCU, advised by <a href="https://sites.google.com/site/yitingchen0524/">Prof. Yi-Ting Chen</a></span><span lang="zh-Hant">陽明交大，指導教授<a href="https://sites.google.com/site/yitingchen0524/">陳奕廷</a></span></div>
-      <p lang="en">Autonomous-driving testing and scenario generation; ran the lab's SLURM GPU cluster.</p>
-      <p lang="zh-Hant">自駕車測試與情境生成研究；維運實驗室的 SLURM GPU 叢集。</p>
-      <ul class="pills"><li>SLURM</li><li>Ansible</li><li>Apptainer</li><li>Docker</li></ul>
+      <h3><span lang="en">Graduate researcher and lab cluster admin</span><span lang="zh-Hant">研究生、實驗室叢集管理者</span></h3>
+      <div class="org"><span lang="en">HCIS Lab, NYCU, advised by <a href="https://sites.google.com/site/yitingchen0524/">Prof. Yi-Ting Chen</a></span><span lang="zh-Hant">陽明交大 HCIS Lab，指導教授<a href="https://sites.google.com/site/yitingchen0524/">陳奕廷</a></span></div>
+      <p lang="en">Built the lab's SLURM cluster out of heterogeneous GPU machines: 11 compute nodes with 29 GPUs across five models (RTX 3090, 3090 Ti, 4080 Super, 4090, RTX PRO 6000) and 376 CPU cores, with GPU sharding so small jobs can share a card. Around it: login and controller nodes, BeeGFS and NFS storage, FreeIPA accounts, and Prometheus alerting with per-job GPU metrics, all deployed with Ansible. Research on large-scale simulation testing for autonomous vehicles.</p>
+      <p lang="zh-Hant">把實驗室規格不一的 GPU 機器建成一套 SLURM 叢集：11 台運算節點、5 種型號共 29 張 GPU（RTX 3090、3090 Ti、4080 Super、4090、RTX PRO 6000）、376 個 CPU 核心，並開啟 GPU sharding 讓小 job 能共用一張卡。周邊有 login 與 controller 節點、BeeGFS 和 NFS 儲存、FreeIPA 帳號管理，以及能對應到每個 job 的 GPU 監控與 Prometheus 告警，全部用 Ansible 部署。研究主題是自駕車的大規模模擬測試。</p>
+      <ul class="pills"><li>SLURM</li><li>Ansible</li><li>BeeGFS</li><li>FreeIPA</li><li>Prometheus</li><li>Apptainer</li></ul>
     </div>
   </article>
   <article class="item">
@@ -268,6 +244,30 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
 
 <section id="research">
   <h2><span lang="en">Research</span><span lang="zh-Hant">研究</span></h2>
+<figure class="road" aria-hidden="true">
+  <svg viewBox="0 0 600 160">
+    <rect x="0" y="22" width="600" height="100" fill="var(--asphalt)"/>
+    <line x1="0" y1="72" x2="600" y2="72" stroke="var(--marking)" stroke-width="2" stroke-dasharray="18 14"/>
+    <line x1="0" y1="24" x2="600" y2="24" stroke="#fff" stroke-opacity=".7" stroke-width="2"/>
+    <line x1="0" y1="120" x2="600" y2="120" stroke="#fff" stroke-opacity=".7" stroke-width="2"/>
+    <rect x="250" y="82" width="64" height="24" rx="3" fill="#d9dee2"/>
+    <path id="traj" pathLength="1" d="M40 94 C 150 94, 190 50, 300 50 L 520 50" fill="none" stroke="var(--marking)" stroke-width="2.5"/>
+    <rect id="ego" x="-20" y="-10" width="40" height="20" rx="4" fill="var(--ego)" stroke="#fff" stroke-width="1.5"/>
+    <g font-family="Schibsted Grotesk, sans-serif" font-size="11" fill="var(--muted)">
+      <line x1="60" y1="134" x2="250" y2="134" stroke="var(--muted)"/>
+      <line x1="60" y1="129" x2="60" y2="139" stroke="var(--muted)"/>
+      <line x1="250" y1="129" x2="250" y2="139" stroke="var(--muted)"/>
+      <text x="155" y="152" text-anchor="middle">gap ∈ [10, 110] m</text>
+      <line x1="572" y1="24" x2="572" y2="72" stroke="var(--muted)"/>
+      <text x="566" y="14" text-anchor="end">lane width ∈ [2.5, 3.75] m</text>
+    </g>
+  </svg>
+  <figcaption>
+    <span lang="en">A logical scenario: one template with a range for each parameter, sampled into many concrete test runs.</span>
+    <span lang="zh-Hant">邏輯情境：一個模板，每個參數給一段範圍，再取樣成許多具體的測試。</span>
+  </figcaption>
+</figure>
+
   <article class="item">
     <div class="when">2024 – 2026</div>
     <div>
@@ -288,10 +288,6 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
       <ul class="pills"><li>esmini</li><li>OpenSCENARIO</li><li>Qwen2.5-VL</li><li>Python</li></ul>
     </div>
   </article>
-</section>
-
-<section id="projects">
-  <h2><span lang="en">Projects</span><span lang="zh-Hant">專案</span></h2>
   <article class="item">
     <div class="when">2024 – 2025</div>
     <div>
@@ -312,21 +308,34 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     </div>
   </article>
   <article class="item">
-    <div class="when">2024</div>
-    <div>
-      <h3><a href="https://github.com/lolainta/NYCU-OSC-2024-Spring"><span lang="en">A Raspberry Pi kernel in Rust</span><span lang="zh-Hant">用 Rust 寫樹莓派 kernel</span></a></h3>
-      <p lang="en">Bootloader, memory allocator, and kernel written from scratch in Rust for a Raspberry Pi 3 (runs on QEMU too).</p>
-      <p lang="zh-Hant">用 Rust 從零寫給樹莓派 3 的 bootloader、記憶體配置器與 kernel，也能在 QEMU 上執行。</p>
-      <ul class="pills"><li>Rust</li><li>AArch64</li><li>QEMU</li></ul>
-    </div>
-  </article>
-  <article class="item">
     <div class="when">2023</div>
     <div>
       <h3><a href="https://github.com/lolainta/nuscenes-devkit-cpp">nuscenes-devkit-cpp</a></h3>
       <p lang="en">A C++ reimplementation of the nuScenes dataset SDK with Python bindings, for faster indexing and queries on large autonomous-driving datasets.</p>
       <p lang="zh-Hant">以 C++ 重寫 nuScenes 資料集 SDK 並提供 Python 介面，加速大型自駕資料集的索引與查詢。</p>
       <ul class="pills"><li>C++</li><li>Python bindings</li></ul>
+    </div>
+  </article>
+</section>
+
+<section id="projects">
+  <h2><span lang="en">Projects</span><span lang="zh-Hant">專案</span></h2>
+  <article class="item">
+    <div class="when"><span lang="en">College years</span><span lang="zh-Hant">大學時期</span></div>
+    <div>
+      <h3><span lang="en">Homelab</span><span lang="zh-Hant">個人 Homelab</span></h3>
+      <p lang="en">Started by turning spare PCs into servers in my first year of college. It ran on Proxmox VE with ZFS and NFS storage, routed through pfSense and VyOS, and hosted my own DNS, mail, VPN, LDAP, and web services, monitored with LibreNMS. Now retired.</p>
+      <p lang="zh-Hant">大一開始把閒置電腦改成伺服器。用 Proxmox VE 跑虛擬機，儲存用 ZFS 和 NFS，路由交給 pfSense 和 VyOS，自己架 DNS、Mail、VPN、LDAP 和網站，用 LibreNMS 監控。現已停用。</p>
+      <ul class="pills"><li>Proxmox VE</li><li>ZFS</li><li>pfSense</li><li>VyOS</li><li>LibreNMS</li></ul>
+    </div>
+  </article>
+  <article class="item">
+    <div class="when">2024</div>
+    <div>
+      <h3><a href="https://github.com/lolainta/NYCU-OSC-2024-Spring"><span lang="en">A Raspberry Pi kernel in Rust</span><span lang="zh-Hant">用 Rust 寫樹莓派 kernel</span></a></h3>
+      <p lang="en">Bootloader, memory allocator, and kernel written from scratch in Rust for a Raspberry Pi 3 (runs on QEMU too).</p>
+      <p lang="zh-Hant">用 Rust 從零寫給樹莓派 3 的 bootloader、記憶體配置器與 kernel，也能在 QEMU 上執行。</p>
+      <ul class="pills"><li>Rust</li><li>AArch64</li><li>QEMU</li></ul>
     </div>
   </article>
   <details>
