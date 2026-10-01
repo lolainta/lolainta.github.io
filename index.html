@@ -68,10 +68,7 @@ nav.toc { display: none; }
   nav.toc a { display: flex; align-items: center; gap: 12px; padding: 6px 0; color: var(--muted); text-decoration: none; font-size: 15px; }
   nav.toc a::before { content: ""; width: 24px; height: 2px; background: var(--line); transition: width .15s, background .15s; }
   nav.toc a:hover, nav.toc a.on { color: var(--ink); }
-  nav.toc a:hover::before, nav.toc a.on::before { width: 56px; background: var(--marking); }
-  /* last section + footer (~150px) fill the viewport below the 48px anchor line, so every nav target can scroll to it */
-  main section:last-of-type { min-height: calc(100vh - 198px); }
-}
+  nav.toc a:hover::before, nav.toc a.on::before { width: 56px; background: var(--marking); }}
 
 .side-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 28px; font-size: 15px; }
 @media (min-width: 1024px) { .side-foot { margin-top: auto; padding-top: 24px; } }
@@ -484,10 +481,15 @@ btn.onclick = () => set(root.dataset.lang === 'zh' ? 'en' : 'zh');
 const links = [...document.querySelectorAll('nav.toc a')];
 const secs = [...document.querySelectorAll('main section')];
 // ponytail: plain scroll handler over 6 sections; current = last section whose top passed the
-// anchor line (scroll-margin-top is 48px), and the last section once the page hits the bottom
+// anchor line (scroll-margin-top is 48px). At the page bottom the last sections can't reach that
+// line, so there it is the nav entry just clicked (pin), else the last section.
+let pin;
+links.forEach(a => a.addEventListener('click', () => { pin = a.hash; spy(); }));
+// any manual scrolling input drops the pin (mousedown fires before a nav click sets it again)
+['wheel', 'touchmove', 'keydown', 'mousedown'].forEach(t => addEventListener(t, () => pin = null, { passive: true }));
 function spy() {
   const end = innerHeight + scrollY >= root.scrollHeight - 2;
-  const cur = end ? secs.at(-1) : secs.findLast(s => s.getBoundingClientRect().top <= 64) || secs[0];
+  const cur = end ? secs.find(s => '#' + s.id === pin) || secs.at(-1) : secs.findLast(s => s.getBoundingClientRect().top <= 64) || secs[0];
   links.forEach(a => a.classList.toggle('on', a.hash === '#' + cur.id));
 }
 addEventListener('scroll', spy, { passive: true });
