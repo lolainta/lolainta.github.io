@@ -51,10 +51,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .side { padding: 64px 0 8px; }
 @media (min-width: 1024px) {
   .page { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; padding: 0 48px; }
-  .side { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; padding: 88px 0 48px; }
-  main { padding: 88px 0 0; }
+  .side { position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; padding: 64px 0 40px; }
+  main { padding: 64px 0 0; }
 }
 
+.avatar { display: block; width: 112px; height: 112px; border-radius: 50%; object-fit: cover; margin: 0 0 20px; border: 3px solid var(--marking); }
 .side h1 { font-size: clamp(2.4rem, 5vw, 3.2rem); line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
 .side .zh-name { font-size: 1.3rem; color: var(--muted); margin-top: 6px; }
 .side .role { font-size: 1.15rem; font-weight: 500; margin: 16px 0 0; }
@@ -62,7 +63,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 
 nav.toc { display: none; }
 @media (min-width: 1024px) {
-  nav.toc { display: block; margin-top: 40px; }
+  nav.toc { display: block; margin-top: 32px; }
   nav.toc ol { list-style: none; margin: 0; padding: 0; }
   nav.toc a { display: flex; align-items: center; gap: 12px; padding: 6px 0; color: var(--muted); text-decoration: none; font-size: 15px; }
   nav.toc a::before { content: ""; width: 24px; height: 2px; background: var(--line); transition: width .15s, background .15s; }
@@ -71,7 +72,7 @@ nav.toc { display: none; }
 }
 
 .side-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 28px; font-size: 15px; }
-@media (min-width: 1024px) { .side-foot { margin-top: auto; } }
+@media (min-width: 1024px) { .side-foot { margin-top: auto; padding-top: 24px; } }
 .lang {
   position: absolute; top: 16px; right: 16px; z-index: 10; display: flex;
   font: inherit; font-size: 14px; color: var(--muted); background: var(--bg); cursor: pointer;
@@ -126,6 +127,7 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
 <button class="lang" id="lang" type="button" aria-label="Switch language / 切換語言"><span class="l-en">EN</span><span class="l-zh">中文</span></button>
 <div class="page">
 <header class="side">
+  <img class="avatar" src="avatar.jpg" width="200" height="200" alt="Cheng-Liang Chi">
   <h1>Cheng-Liang Chi</h1>
   <div class="zh-name">紀政良</div>
   <p class="role"><span lang="en">Infrastructure and software engineer</span><span lang="zh-Hant">基礎設施與軟體工程師</span></p>
