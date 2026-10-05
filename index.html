@@ -3,8 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cheng-Liang Chi 紀政良</title>
-<meta name="description" content="Cheng-Liang Chi (紀政良): infrastructure and software engineer. SLURM clusters, networks, Linux, and the software on top.">
+<title>Cheng-Liang Chi (LolaInTa) 紀政良</title>
+<meta name="description" content="Cheng-Liang Chi (LolaInTa, 紀政良): infrastructure and software engineer. SLURM clusters, networks, Linux, and the software on top.">
+<link rel="canonical" href="https://lolainta.tw/">
+<meta property="og:title" content="Cheng-Liang Chi (LolaInTa) 紀政良">
+<meta property="og:description" content="Infrastructure and software engineer. SLURM clusters, networks, Linux, and the software on top.">
+<meta property="og:url" content="https://lolainta.tw/">
+<meta property="og:image" content="https://lolainta.tw/avatar.jpg">
+<meta property="og:type" content="profile">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Cheng-Liang Chi","alternateName":["LolaInTa","lolainta","紀政良"],
+ "url":"https://lolainta.tw/","image":"https://lolainta.tw/avatar.jpg","email":"mailto:me@lolainta.tw",
+ "jobTitle":"Infrastructure and software engineer",
+ "sameAs":["https://github.com/lolainta","https://www.linkedin.com/in/lolainta","https://codeforces.com/profile/lolainta","https://ctftime.org/user/173427"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -128,7 +140,7 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
 <header class="side">
   <img class="avatar" src="avatar.jpg" width="200" height="200" alt="Cheng-Liang Chi">
   <h1>Cheng-Liang Chi</h1>
-  <div class="zh-name">紀政良</div>
+  <div class="zh-name">紀政良 · LolaInTa</div>
   <p class="role"><span lang="en">Infrastructure and software engineer</span><span lang="zh-Hant">基礎設施與軟體工程師</span></p>
   <p class="lede" lang="en">I build and run infrastructure. I turned my lab's mismatched GPU workstations into one SLURM cluster, ran my department's network and its 200 lab PCs for three years, and kept a homelab of my own for years before that. My M.S. thesis put that cluster to work testing self-driving cars in simulation.</p>
   <p class="lede" lang="zh-Hant">我擅長建置與維運基礎設施：把實驗室規格不一的 GPU 工作站整合成一套 SLURM 叢集，在系計中管過三年系館網路和約 200 台電腦教室主機，大學時也自己架了好幾年的 homelab。碩士論文就是在這套叢集上大規模跑自駕車的模擬測試。</p>
@@ -313,8 +325,8 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
     <div>
       <h3>PISA: A Distributed Platform for Cross-Simulator Autonomous Vehicle Testing at Scale</h3>
       <div class="org"><span lang="en"><span class="nw">M.S. thesis</span> · <span class="nw">paper and code to be released upon publication</span></span><span lang="zh-Hant"><span class="nw">碩士論文</span>｜<span class="nw">論文與程式碼將於發表後公開</span></span></div>
-      <p lang="en">Runs millions of concrete driving scenarios across different simulators (CARLA, esmini, MetaDrive) to test the decision-making of Autoware and other AV stacks. I designed the scaling layer: a Rust task queue, a Go scheduler that submits work to SLURM, and a Python executor that orchestrates simulator and AV containers over gRPC.</p>
-      <p lang="zh-Hant">在不同模擬器（CARLA、esmini、MetaDrive）上執行數百萬個具體情境，用來測試 Autoware 等自駕系統的決策能力。擴展層是我設計的：Rust 任務佇列、將工作送進 SLURM 的 Go 排程器，以及透過 gRPC 協調模擬器與自駕系統容器的 Python executor。</p>
+      <p lang="en">Runs millions of concrete driving scenarios across different simulators (CARLA, esmini) to test the decision-making of Autoware and other AV stacks. I designed the scaling layer: a Rust task queue, a Go scheduler that submits work to SLURM, and a Python executor that orchestrates simulator and AV containers over gRPC.</p>
+      <p lang="zh-Hant">在不同模擬器（CARLA、esmini）上執行數百萬個具體情境，用來測試 Autoware 等自駕系統的決策能力。擴展層是我設計的：Rust 任務佇列、將工作送進 SLURM 的 Go 排程器，以及透過 gRPC 協調模擬器與自駕系統容器的 Python executor。</p>
       <ul class="pills"><li>Rust</li><li>Go</li><li>Python</li><li>SLURM</li><li>Apptainer</li><li>gRPC</li><li>PostgreSQL</li></ul>
     </div>
   </article>
