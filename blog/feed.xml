@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>LolaInTa 的文章</title>
+  <link>https://lolainta.tw/blog/</link>
+  <description>Cheng-Liang Chi（紀政良）的文章</description>
+  <language>zh-TW</language>
+  <item>
+    <title>用模擬火箭打氣球：Balloon Popping Challenge 2026 紀錄</title>
+    <link>https://lolainta.tw/blog/2026-10-balloon-popping-challenge/</link>
+    <guid>https://lolainta.tw/blog/2026-10-balloon-popping-challenge/</guid>
+    <pubDate>Sun, 11 Oct 2026 12:00:00 +0800</pubDate>
+    <description>TASTI 2026 的火箭 GNC 軟體競賽，80 多隊、7 國參賽，我一個人打進決賽拿到第 5 名：在實驗室叢集上用 PPO 訓練一個打氣球的 agent，以及一路上做過的決定。</description>
+  </item>
+</channel>
+</rss>

@@ -133,6 +133,15 @@ ul.cols { margin: 0; }
 ul.cols li:first-child { margin-top: 0; }
 @media (min-width: 640px) { ul.cols { columns: 2; column-gap: 32px; } ul.cols li { break-inside: avoid; } }
 footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
+/* links to the other parts of the site; shown at every width (the section toc is desktop only) */
+nav.site { display: flex; gap: 18px; margin-top: 20px; font-size: 15px; font-weight: 500; }
+nav.site a { text-decoration: none; border-bottom: 2px solid var(--marking); padding-bottom: 1px; }
+.recent { margin-top: 24px; padding: 14px 0 0; border-top: 1px solid var(--line); }
+.recent h3 { font-size: 15px; color: var(--muted); font-weight: 500; }
+.recent ul { list-style: none; padding: 0; margin: 6px 0 0; }
+.recent li { margin: 4px 0; }
+.recent .when { margin-left: 6px; }
+.draft { display: inline-block; vertical-align: 2px; margin-left: 8px; padding: 0 7px; font-size: 12px; font-weight: 700; line-height: 1.7; color: var(--asphalt); background: var(--marking); border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -145,6 +154,10 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
   <p class="role"><span lang="en">Infrastructure and software engineer</span><span lang="zh-Hant">基礎設施與軟體工程師</span></p>
   <p class="lede" lang="en">I build and run infrastructure. I turned my lab's mismatched GPU workstations into one SLURM cluster, ran my department's network and its 200 lab PCs for three years, and kept a homelab of my own for years before that. My M.S. thesis put that cluster to work testing self-driving cars in simulation.</p>
   <p class="lede" lang="zh-Hant">我擅長建置與維運基礎設施：把實驗室規格不一的 GPU 工作站整合成一套 SLURM 叢集，在系計中管過三年系館網路和約 200 台電腦教室主機，大學時也自己架了好幾年的 homelab。碩士論文就是在這套叢集上大規模跑自駕車的模擬測試。</p>
+  <nav class="site" aria-label="Site">
+    <a href="/blog/"><span lang="en">Posts</span><span lang="zh-Hant">文章</span></a>
+    <!-- ponytail: hidden until /world/ is deployed; uncomment then <a href="/world/"><span lang="en">World</span><span lang="zh-Hant">世界</span></a> -->
+  </nav>
   <nav class="toc" aria-label="Sections">
     <ol>
       <li><a href="#now"><span lang="en">Now</span><span lang="zh-Hant">近況</span></a></li>
@@ -169,6 +182,12 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
   <h2><span lang="en">Now</span><span lang="zh-Hant">近況</span></h2>
   <p lang="en">I finished my M.S. in Computer Science and Engineering at National Yang Ming Chiao Tung University (NYCU) in August 2026. Through my advisor's collaboration with Taipei Veterans General Hospital, I'm currently building clinical information systems that streamline the care team's workflow. <strong>I'm looking for a software engineering role.</strong></p>
   <p lang="zh-Hant">2026 年 8 月自陽明交通大學資訊科學與工程研究所畢業。目前透過指導教授與臺北榮民總醫院的合作，協助建置醫療資訊系統，優化醫療團隊的工作流程。<strong>正在尋找軟體工程師的工作機會。</strong></p>
+  <!-- recent-posts -->
+  <div class="recent">
+    <h3><span lang="en">Recent posts</span><span lang="zh-Hant">最近文章</span></h3>
+    <ul><li><a href="/blog/2026-10-balloon-popping-challenge/">用模擬火箭打氣球：Balloon Popping Challenge 2026 紀錄</a> <span class="when">2026-10-11</span></li></ul>
+  </div>
+  <!-- /recent-posts -->
 </section>
 
 <section id="education">
@@ -423,6 +442,17 @@ footer { margin: 80px 0 48px; color: var(--muted); font-size: 14px; }
 
 <section id="awards">
   <h2><span lang="en">Awards and competitions</span><span lang="zh-Hant">獲獎與競賽</span></h2>
+  <article class="item">
+    <div class="when">2026</div>
+    <div>
+      <ul lang="en">
+        <li><a href="/blog/2026-10-balloon-popping-challenge/">Balloon Popping Challenge @ TASTI 2026</a> (rocket GNC software competition): finalist</li>
+      </ul>
+      <ul lang="zh-Hant">
+        <li><a href="/blog/2026-10-balloon-popping-challenge/">TASTI 2026 Balloon Popping Challenge 火箭導控軟體競賽</a> 晉級決賽</li>
+      </ul>
+    </div>
+  </article>
   <article class="item">
     <div class="when">ICPC</div>
     <div>
